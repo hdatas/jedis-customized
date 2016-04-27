@@ -131,6 +131,21 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
   }
 
   /**
+   * HCD Set the string value as value of the key. The string can't be longer than 1073741824 bytes (1
+   * GB).
+   * <p>
+   * Time complexity: O(1)
+   * @param key
+   * @param value
+   * @return Status code reply
+   */
+  public String hcdsetproxy(final String key, String value) {
+    checkIsInMultiOrPipeline();
+    client.hcdsetproxy(key, value);
+    return client.getStatusCodeReply();
+  }
+
+  /**
    * Set the string value as value of the key. The string can't be longer than 1073741824 bytes (1
    * GB).
    * @param key
@@ -157,6 +172,20 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
   public String get(final String key) {
     checkIsInMultiOrPipeline();
     client.sendCommand(Protocol.Command.GET, key);
+    return client.getBulkReply();
+  }
+
+  /**
+   * HCD Get the value of the specified key. If the key does not exist null is returned. If the value
+   * stored at key is not a string an error is returned because GET can only handle string values.
+   * <p>
+   * Time complexity: O(1)
+   * @param key
+   * @return Bulk reply
+   */
+  public String hcdgetproxy(final String key) {
+    checkIsInMultiOrPipeline();
+    client.sendCommand(Protocol.Command.HCDGETPROXY, key);
     return client.getBulkReply();
   }
 

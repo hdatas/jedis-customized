@@ -50,6 +50,10 @@ public class Client extends BinaryClient implements Commands {
     set(SafeEncoder.encode(key), SafeEncoder.encode(value));
   }
 
+  public void hcdsetproxy(final String key, final String value) {
+    hcdsetproxy(SafeEncoder.encode(key), SafeEncoder.encode(value));
+  }
+
   @Override
   public void set(final String key, final String value, final SetParams params) {
     set(SafeEncoder.encode(key), SafeEncoder.encode(value), params);
@@ -58,6 +62,10 @@ public class Client extends BinaryClient implements Commands {
   @Override
   public void get(final String key) {
     get(SafeEncoder.encode(key));
+  }
+
+  public void hcdgetproxy(final String key) {
+    hcdgetproxy(SafeEncoder.encode(key));
   }
 
   @Override

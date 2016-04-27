@@ -126,6 +126,14 @@ public class BinaryClient extends Connection {
     sendCommand(Command.GET, key);
   }
 
+  public void hcdsetproxy(final byte[] key, final byte[] value) {
+    sendCommand(Command.HCDSETPROXY, key, value);
+  }
+
+  public void hcdgetproxy(final byte[] key) {
+    sendCommand(Command.HCDGETPROXY, key);
+  }
+ 
   public void quit() {
     db = 0;
     sendCommand(QUIT);
