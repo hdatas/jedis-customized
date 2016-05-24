@@ -6,7 +6,8 @@ To build and install this jar to your local maven repo:
 mvn package install -DskipTests -Dmaven.javadoc.skip
 ```
 
-To use this customized jar:
+To use this customized jar, include the following section to your pom file:
+
 ```xml
 <dependency>
     <groupId>redis.clients</groupId>
