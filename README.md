@@ -1,4 +1,21 @@
 [![Build Status](https://travis-ci.org/xetorthio/jedis.png?branch=master)](https://travis-ci.org/xetorthio/jedis)
+# How to build
+
+To build and install this jar to your local maven repo:
+```
+mvn package install -DskipTests -Dmaven.javadoc.skip
+```
+
+To use this customized jar:
+```xml
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+    <type>jar</type>
+    <scope>compile</scope>
+</dependency>
+```
 
 # Jedis
 
