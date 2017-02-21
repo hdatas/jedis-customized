@@ -125,7 +125,10 @@
                                         <id>attach-javadoc</id>
                                         <goals>
                                             <goal>jar</goal>
-                                        </goals>
+                                        </goals>		    
+                                        <configuration>
+                                            <additionalparam>-Xdoclint:none</additionalparam>
+                                        </configuration>
                                     </execution>
                                 </executions>
 			</plugin>
